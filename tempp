@@ -1,0 +1,22 @@
+if 'top' in query:
+            a = int(query.strip().strip('top'))
+            check_a = sorted(sort_dic.items(),key = lambda x:x[1],reverse = True)
+        elif 'bottom' in query:
+            a = int(query.strip().strip('bottom'))
+            check_a = sorted(sort_dic.items(),key = lambda x:x[1],reverse = False)
+        if a>len(check_a):
+            a = len(check_a)
+        for i in range(0,a):
+            t = check_a[i]
+            con = t[0]
+            va= t[1]
+            dic_1 ={}
+            dic_1.update({'country':con})
+            dic_1.update({'date':time})
+            dic_1.update({'value':va})
+            result.append(dic_1)
+        dic_r = {}
+        dic_r.update({'indicator':indicator1})
+        dic_r.update({'indicator_value':indicator1_value})
+        dic_r.update({'entries':result})
+        conn.close()
